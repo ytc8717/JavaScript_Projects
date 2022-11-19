@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <style>
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 39%;
+        }
+
+        h1 {
+            text-align: center
+        }
+
+        h2 {
+            text-align: center
+        }
+
+        h3 {
+            text-align: center;
+            text-decoration: underline
+        }
+
+        p {
+            text-align: center
+        }
+    </style>
+
+    <meta charset="utf-8">
+    <title>Pizza Time!</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+    </script>
+    <script type="text/javascript">
+        if (typeof jQuery == 'undefined') {
+            document.write(unescape("%3Cscript src='../../Shared/jquery-1.11.3.js' type='text/javascript'%3E%3C/script%3E"));
+        }
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#order").click(function () {
+                placeOrder();
+            });
+
+            $('input[type=radio][name=crust]').change(function () {
+                getCrust();
+                getPrice();
+            });
+            $('input[type=radio][name=size]').change(function () {
+                getSize();
+                getPrice();
+            });
+            var crust = 0;
+            var size = 0;
+            var toppings = 0;
+            var topbase = 0;
+            getCrust();
+            getSize();
+            getPrice();
+
+            var limit = 3;
+            $('input.single-checkbox').on('change', function (evt) {
+                if ($(this).siblings(':checked').length >= limit) {
+                    this.checked = false;
+                    alert("TOO MUCH TOPPINGS STRANGER!");
+                }
+                var len = document.querySelectorAll('input[type="checkbox"]:checked').length;
+                if (len == 1) {
+                    toppings = 1;
+                    getSize();
+                    getPrice();
+                }
+                if (len == 2) {
+                    toppings = 2;
+                    getSize();
+                    getPrice();
+                }
+                if (len == 3) {
+                    toppings = 3;
+                    getSize();
+                    getPrice();
+                }
+            });
+
+            function getPrice() {
+                var base = 0;
+                var topCost = topbase * toppings;
+
+                if (crust == 1) {
+                    if (size == 1)
+                        base = 10;
+                    else if (size == 2)
+                        base = 15;
+                    else
+                        base = 20;
+                }
+                else if (crust == 2) {
+                    if (size == 1)
+                        base = 12;
+                    else if (size == 2)
+                        base = 17;
+                    else
+                        base = 22;
+                }
+                else {
+                    if (size == 1)
+                        base = 15;
+                    else if (size == 2)
+                        base = 20;
+                    else
+                        base = 25;
+                }
+
+
+                var divobj = document.getElementById('tot_amount');
+                divobj.value = topCost + base;
+            }
+
+            function getCrust() {
+                var whichOne = $('input:radio[name=crust]:checked').val();
+                if (whichOne === "thin") {
+                    crust = 1;
+                }
+                else if (whichOne === "regular") {
+                    crust = 2;
+                }
+                else {
+                    crust = 3;
+                }
+            }
+
+            function getSize() {
+                var whichOne = $('input:radio[name=size]:checked').val();
+                if (whichOne === "small") {
+                    size = 1;
+                    topbase = 1;
+                }
+                else if (whichOne === "medium") {
+                    size = 2;
+                    topbase = 2;
+                }
+                else {
+                    size = 3;
+                    topbase = 3;
+                }
+            }
+
+
+
+            function placeOrder() {
+                alert("Thank you for your order!")
+                window.location.reload()
+            }
+
+
+        });
+
+
+
+    </script>
+</head>
+
+<body>
+    <h1>Pizza Time</h1>
+    <img src="pizza.jpg" alt="pizza" class="center">
+    <form name="myForm">
+        <br>
+        <h2>Please select your desired pizza:</h2>
+        <h3>Choice of crust?</h3>
+        <p>
+            <input type="radio" name="crust" value="thin" checked>Thin
+            <input type="radio" name="crust" value="regular">Regular
+            <input type="radio" name="crust" value="deep">Deep dish
+        </p>
+        <h3>Choice of size?</h3>
+        <p>
+            <input type="radio" name="size" value="small" checked>Small
+            <input type="radio" name="size" value="medium">Medium
+            <input type="radio" name="size" value="large">Large
+        </p>
+        <h3>Choice of sauce?</h3>
+        <p>
+            <input type="radio" name="sauce" value="red" checked>Red
+            <input type="radio" name="sauce" value="white">White
+            <input type="radio" name="sauce" value="Green">Green
+        </p>
+        <h3>Cheese</h3>
+        <p>
+            <input type="radio" name="cheese" value="mozzarella" checked>Mozzarella
+        </p>
+        <h3>Choice of toppings? (max 3)</h3>
+        <p>
+            <input class="single-checkbox" type="checkbox" name="toppings" value="pepperoni">pepperoni
+            <input class="single-checkbox" type="checkbox" name="toppings" value="sausage">sausage
+            <input class="single-checkbox" type="checkbox" name="toppings" value="onion">onion
+            <input class="single-checkbox" type="checkbox" name="toppings" value="garlic">garlic
+            <input class="single-checkbox" type="checkbox" name="toppings" value="green pepper">green pepper
+            <input class="single-checkbox" type="checkbox" name="toppings" value="mushrooms">mushrooms
+            <input class="single-checkbox" type="checkbox" name="toppings" value="black olives">black olives
+        </p>
+
+        <p><strong>The total amount of deliciousness: $</strong><input class="w3-input w3-border" name="tot_amount"
+                id="tot_amount" type="text" readonly></p>
+        <p><input style="border-bottom-style: double" type="button" id="order" value="Give me my pizza!">
+        </p>
+    </form>
+</body>
+
+</html>
