@@ -1,6 +1,9 @@
 # Text Based RPG Game (HTML, CSS, JavaScript)
 - A text based RPG game written in HTML &amp; CSS &amp; JavaScript
 
+Reference:
+- https://www.youtube.com/watch?v=nu_pCVPKzTk
+
 ![image](https://user-images.githubusercontent.com/60242731/199659947-f856d28d-92e3-42e7-9dc4-455474a2b2f9.png)
 
 ![image](https://user-images.githubusercontent.com/60242731/199659985-2b50ada1-66c7-4c3d-aa22-c6d55e2d0662.png)
