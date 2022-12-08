@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pizza Time</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <center>
+      <h1>Pizza Time</h1>
+      <p>Welcome to Richard's Pizza</p>
+    </center>
+  </header>
+  <div id="wrapper">
+    <center>
+      <form id="form-pizza" method="POST">
+        <span class="subtitle">Customize your desired pizza</span>
+        <div class="form-content">
+          <label>Choice of crust?<br>
+            <label>
+              <input type="radio" name="crust" value="thin">Thin
+            </label>
+            <label>
+              <input type="radio" name="crust" value="regular">Regular
+            </label>
+            <label>
+              <input type="radio" name="crust" value="deep">Deep dish
+            </label>
+          </label>
+        </div>
+        <div class="form-content">
+          <label>Choice of size?<br>
+            <label>
+              <input type="radio" name="size" value="small">Small
+            </label>
+            <label>
+              <input type="radio" name="size" value="medium">Medium
+            </label>
+            <label>
+              <input type="radio" name="size" value="large">Large
+            </label>
+          </label>
+        </div>
+        <div class="form-content">
+          <label>Choice of sauce?<br>
+            <label>
+              <input type="radio" name="sauce" value="red">Red
+            </label>
+            <label>
+              <input type="radio" name="sauce" value="white">White
+            </label>
+            <label>
+              <input type="radio" name="sauce" value="green">Green
+            </label>
+          </label>
+        </div>
+        <div class="form-content">
+          <label>Cheese? <small>(optional)</small><br>
+            <input id="cheese" type="checkbox" name="cheese" value="mozzarella">Mozzarella
+          </label>
+        </div>
+        <div class="form-content">
+          <label>Choice of toppings? <small>(optional | max 3)</small></label><br>
+            <label>
+              <input type="checkbox" name="toppings" value="pepperoni">pepperoni
+            </label>
+            <label>
+              <input type="checkbox" name="toppings" value="sausage">sausage
+            </label>
+            <label>
+              <input type="checkbox" name="toppings" value="onion">onion
+            </label>
+            <label>
+              <input type="checkbox" name="toppings" value="garlic">garlic
+            </label>
+            <label>
+              <input type="checkbox" name="toppings" value="green pepper">green pepper
+            </label>
+            <label>
+              <input type="checkbox" name="toppings" value="mushrooms">mushrooms
+            </label>
+            <label>
+              <input type="checkbox" name="toppings" value="black olives">black olives
+            </label>
+        </div>
+        <div class="form-content">
+          <strong>The total amount of deliciousness: $</strong>
+          <input class="amount-box" name="total_amt" id="total_amt" type="text" readonly>
+        </div>
+        <input id="submit-button" type="submit" id="order" value="Give me that pizza!">
+      </form>
+    </center>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
