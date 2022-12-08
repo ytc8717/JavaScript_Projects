@@ -1,6 +1,6 @@
 # Text Based RPG Game (HTML, CSS, JavaScript)
 - A text based RPG game built with HTML &amp; CSS &amp; JavaScript
-- Implemented weapon, store, battle and leveling game mechanics
+- Implemented weapon, store, level and battle game mechanics
 
 Application Link:
 - https://textbasedrpg.richardchen7.repl.co/
