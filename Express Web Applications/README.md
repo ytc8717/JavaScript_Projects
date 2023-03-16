@@ -1,2 +1,2 @@
-# Full Stack Apps
-Collection of full stack applications
+# Express.js Apps
+Collection of Express.js applications
